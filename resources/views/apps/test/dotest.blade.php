@@ -39,7 +39,6 @@
 		<input type="submit" value="Új teszt!" class="btn btn-success" onclick="window.location='/test';">
 	</div>
 
-
 	<script> {{-- kiértékeli a válaszokat --}}
 		function doResult() {
 				{{-- rászűrök a gombokra, amik ki vannak pipálva, és ha nem 1,

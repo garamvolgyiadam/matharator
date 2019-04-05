@@ -28,7 +28,7 @@ class TestController extends Controller {
  *
  */
 	public function dotest(Request $request) {
-		if (!array_key_exists('topic', $request->all())) {
+		if (!array_key_exists('topic', $request->all())) { //ha nem választok ki semmilyen témakört, amiből tesztet generálnék, visszadob a témakörkiválasztáshoz
 						return redirect('/test');
 		}
 		$topics=$request->all()['topic'];
@@ -37,7 +37,7 @@ class TestController extends Controller {
 		// a 10 excersise-on belul berandomolja a valaszok sorrendjet
 		// atadja a viewnak
 		//return view('apps.test.index',compact(['topics']));
-		$exercises = Exercises::whereIn('topic_id', $topics)->inRandomOrder()->limit(10)->get();
+		$exercises = Exercises::whereIn('topic_id', $topics)->inRandomOrder()->limit(10)->get(); //10db kérdést lekér válasszal
 
 		return view('apps.test.dotest',compact(['exercises']));
 

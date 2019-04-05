@@ -12,6 +12,12 @@
   MathJax.Hub.Config({
     tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
   });
+
+  MathJax.Hub.Register.StartupHook("End",function () {
+			//alert('mathjax lefutott ;)');
+			$('.test-div').fadeIn(2000);
+	 });
+   
 </script>
 
 	<div class="row">
