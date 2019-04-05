@@ -1,0 +1,36 @@
+li.list-group-item{
+  font-weight: bold;
+  overflow: auto;
+  -webkit-overflow-scrolling: auto;
+}
+li.list-group{
+  word-break: break-all;
+}
+
+li.li-answer, .li-answer label {
+  cursor: pointer;
+}
+
+/* talan bizonyos mobil bongeszoknel elerheto,
+hogy ha van scrollozas, akkor megis maradjon
+meg a scrollbar, ne csak akkor latszodjon, amikor
+epp scrollozunk.. */
+
+::-webkit-scrollbar:vertical {
+    width: 12px;
+}
+
+::-webkit-scrollbar:horizontal {
+    height: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, .5);
+    border-radius: 10px;
+    border: 2px solid #ffffff;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: #ffffff;
+}
