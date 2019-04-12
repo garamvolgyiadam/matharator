@@ -26,3 +26,11 @@ Route::post('/test/dotest', 'Apps\TestController@dotest');
 
 Route::get('/examples/{topic_id}', 'Apps\ExamplesController@index')
 			->where('topic_id', '[0-9]+');
+
+Auth::routes(['verify' => true]);
+
+Route::get('profile', function () {
+    // Only verified users may enter...
+})->middleware('verified');
+
+Auth::routes();

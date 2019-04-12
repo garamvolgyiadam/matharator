@@ -12,7 +12,7 @@ class TestController extends Controller {
 
 	public function index() {
 		$topics = Topic::all();
-		return view('apps.test.index',compact(['topics']));
+		return view('apps.test.index',compact(['topics','uptime']));
 	}
 
 /**
@@ -38,8 +38,7 @@ class TestController extends Controller {
 		// atadja a viewnak
 		//return view('apps.test.index',compact(['topics']));
 		$exercises = Exercises::whereIn('topic_id', $topics)->inRandomOrder()->limit(10)->get(); //10db kérdést lekér válasszal
-
-		return view('apps.test.dotest',compact(['exercises']));
+		return view('apps.test.dotest',compact(['exercises','uptime']));
 
 	}
 
