@@ -6,16 +6,18 @@
         <span class="navbar-toggler-icon"></span> </button>
       <div class="collapse navbar-collapse text-center justify-content-end" id="navbar2SupportedContent">
         <ul class="navbar-nav">
-          <li class="nav-item">
-            <a href="/" class="nav-link" href="#">Nyitólap</a>
-          </li>
-          <li class="nav-item">
-            <a href="/topics" class="nav-link" href="#">Feladat témakörök</a>
-          </li>
-          <li class="nav-item">
-            <a href="/test" class="nav-link" href="#">Tesztkérdések
-            </a>
-          </li>
+          <!--
+              <li class="nav-item">
+                <a href="/" class="nav-link" href="#">Nyitólap</a>
+              </li>
+              <li class="nav-item">
+                <a href="/topics" class="nav-link" href="#">Feladat témakörök</a>
+              </li>
+              <li class="nav-item">
+                <a href="/test" class="nav-link" href="#">Tesztkérdések
+                </a>
+              </li>
+            -->
 
           @guest
               <li class="nav-item">
@@ -27,6 +29,16 @@
                   </li>
               @endif
           @else
+              <li class="nav-item">
+                <a href="/" class="nav-link" href="#">Nyitólap</a>
+              </li>
+              <li class="nav-item">
+                <a href="/topics" class="nav-link" href="#">Feladat témakörök</a>
+              </li>
+              <li class="nav-item">
+                <a href="/test" class="nav-link" href="#">Tesztkérdések
+                </a>
+              </li>
               <li class="nav-item dropdown">
                   <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                       <i class="fas fa-user"></i> &nbsp;&nbsp;{{ Auth::user()->name }} <span class="caret"></span>
