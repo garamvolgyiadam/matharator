@@ -6,6 +6,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Contracts\Auth\CanResetPassword;
+use App\Notifications\MailResetPasswordToken;
 
 
 class User extends Authenticatable
@@ -24,7 +25,7 @@ class User extends Authenticatable
     * @param  string  $token
     * @return void
     */
-    
+
 
     /**
      * The attributes that should be hidden for arrays.
@@ -40,8 +41,12 @@ class User extends Authenticatable
      */
     protected $casts = ['email_verified_at' => 'datetime'];
 
-    /*public function sendPasswordResetNotification($token)
-    {
-        $this->notify(new ResetPasswordNotification($token));
-    }*/
+
+    /**
+    * Send a password reset email to the user
+    */
+   public function sendPasswordResetNotification($token)
+   {
+       $this->notify(new MailResetPasswordToken($token));
+   }
 }
