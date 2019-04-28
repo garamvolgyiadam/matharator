@@ -15,6 +15,8 @@
 		return view('index');
 	});
 
+	//Route::get('/', 'Auth\LoginController@__construct');
+
 	Route::get('/topics',	'Apps\TopicController@index');
 
 	Route::get('/learn/{topic_id}', 'Apps\LearnController@index')
@@ -23,6 +25,7 @@
 	Route::get('/test', 'Apps\TestController@index');
 
 	Route::post('/test/dotest', 'Apps\TestController@dotest');
+	Route::any('/test/savetest', 'Apps\TestController@savetest');
 
 	Route::get('/examples/{topic_id}', 'Apps\ExamplesController@index')
 				->where('topic_id', '[0-9]+');

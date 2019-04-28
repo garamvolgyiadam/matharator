@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Apps;
 use App\Http\Controllers\Controller;
 use App\Topic;
+use App\Test;
+use App\TestItems;
 use App\Exercises;
 use Illuminate\Http\Request;
 
@@ -37,5 +39,36 @@ class TestController extends Controller {
 		$exercises = Exercises::whereIn('topic_id', $topics)->inRandomOrder()->limit(10)->get(); //10db kérdést lekér válasszal
 		return view('apps.test.dotest',compact(['exercises','uptime']));
 
+	}
+
+	public function savetest(Request $request) {
+		if (!\Auth::check())
+		{
+				return redirect('/login');
+		}
+
+		$userid =  \Auth::id();
+
+		if (!array_key_exists('data', $request->all())) { //ha nem választok ki semmilyen témakört, amiből tesztet generálnék, visszadob a témakörkiválasztáshoz
+						return redirect('/test');
+		}
+		$data=$request->all()['data'];
+
+		$test = new Test();
+		$test -> user_id = $userid;
+		$test ->save();
+
+		foreach ($data as $exercise_id => $answer) {
+			if ($answer=="") {
+				$answer = null;
+			}
+			$t = new TestItems();
+			$t->test_id = $test->id;
+			$t->exercise_id = $exercise_id;
+			$t->answer = $answer;
+			$t->save();
+		}
+
+		dd($test->id);
 	}
 }

@@ -15,9 +15,9 @@
 
   MathJax.Hub.Register.StartupHook("End",function () {
 			//alert('mathjax lefutott ;)');
-			$('.test-div').fadeIn(2000);
+			$('.list-group').fadeIn(2000);
 	 });
-   
+
 </script>
 
 	<div class="row">

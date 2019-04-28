@@ -38,9 +38,9 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    protected function authenticated($request, $user)
+    /*protected function authenticated($request, $user)
     {
         $request->session()->flash('flash_notification.success', 'Congratulations, you have cracked the code!');
         return redirect()->intended($this->redirectPath());
-    }
+    }*/
 }

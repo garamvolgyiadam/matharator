@@ -28,6 +28,6 @@
 			<input type="submit" value="Mehet!" class="btn btn-success">
 		</div>
 	</div>
-
+	
 </form>
 @endsection
