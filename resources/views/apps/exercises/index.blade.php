@@ -25,10 +25,10 @@
   mar tordeltebben jelenjenek meg, mert alapbol amit renderel, az nem
   reszponziv
 <script type="text/javascript">
-$(window).resize(function() {
-  MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
-  alert('ok!');
-});
+  $(window).resize(function() {
+    MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+    alert('ok!');
+  });
 </script>
 --}}
 
@@ -36,9 +36,7 @@ $(window).resize(function() {
 
     @foreach ($exercises as $exercise)
 
-      @if($exercise->topic_id == $topic_id) {{-- a $topic_id amivel hasonlítok, az az adott kártya száma, amire rákattintottam --}}
-        @include('apps.exercises.listitem')
-      @endif
+      @include('apps.exercises.listitem')      
 
     @endforeach
 

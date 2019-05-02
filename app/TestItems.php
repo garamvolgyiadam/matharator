@@ -13,4 +13,10 @@ class TestItems extends Model {
 
 	protected $fillable = array('*');
 
+	// az exercise id-ja = a mi exercise_id-nkkal
+	public function exercise() {
+		return $this->hasOne('App\Exercises', 'id', 'exercise_id');
+																		//foreign_key, local_key
+	}
+
 }

@@ -30,13 +30,14 @@
               @endif
           @else
               <li class="nav-item">
-                <a href="/" class="nav-link" href="#">Nyitólap</a>
-              </li>
-              <li class="nav-item">
                 <a href="/topics" class="nav-link" href="#">Feladat témakörök</a>
               </li>
               <li class="nav-item">
                 <a href="/test" class="nav-link" href="#">Tesztkérdések
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/usertests" class="nav-link" href="#">Megoldott Tesztek
                 </a>
               </li>
               <li class="nav-item dropdown">

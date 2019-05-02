@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Apps;
 use App\Http\Controllers\Controller;
 use App\Topic;
 use App\Test;
+use App\User;
 use App\TestItems;
 use App\Exercises;
 use Illuminate\Http\Request;
@@ -37,7 +38,7 @@ class TestController extends Controller {
 		// atadja a viewnak
 		//return view('apps.test.index',compact(['topics']));
 		$exercises = Exercises::whereIn('topic_id', $topics)->inRandomOrder()->limit(10)->get(); //10db kérdést lekér válasszal
-		return view('apps.test.dotest',compact(['exercises','uptime']));
+		return view('apps.test.dotest',compact(['exercises']));
 
 	}
 
@@ -69,6 +70,7 @@ class TestController extends Controller {
 			$t->save();
 		}
 
-		dd($test->id);
+		//dd($test->id);
 	}
+
 }

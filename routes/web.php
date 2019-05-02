@@ -30,6 +30,10 @@
 	Route::get('/examples/{topic_id}', 'Apps\ExamplesController@index')
 				->where('topic_id', '[0-9]+');
 
+	Route::get('/usertests', 'Apps\UserTestController@index');
+	Route::get('/usertests/{test_id}', 'Apps\UserTestController@show')
+				->where('test_id', '[0-9]+');
+
 	Auth::routes(['verify' => true]);
 
 	Auth::routes();

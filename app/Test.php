@@ -13,4 +13,10 @@ class Test extends Model {
 
 	protected $fillable = array('*');
 
+	// 1 test-nek sok testitem-je lehet
+	// meghozza a test_id-val kotodik a testitems object a test id-jahoz
+	public function items() {
+		return $this->hasMany('App\TestItems', 'test_id');
+	}
+
 }

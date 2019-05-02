@@ -125,26 +125,6 @@
 				});
 			});
 
-/*
-jQuery('input[type=radio]:checked').parent().parent()
- .css("background-color","#9bc2cf");
-		function changeBG() { {{-- kattintásra hátteret vált --}}
-			document.addEventListener("DOMContentLoaded", function() {
-
-			});
-		}
-*/
-
 	</script>
-
- <!--
- $(document).on('click', '.addproduct', function () {
-	 'jQuery('input[type=radio]:'checked').parent().parent()
-		 .css("background-color","#9bc2cf");
-
-	 jQuery('input[type=radio]:not(:checked)').parent().parent()
-		 .css("background-color","white");
- });
--->
 
 @endsection
