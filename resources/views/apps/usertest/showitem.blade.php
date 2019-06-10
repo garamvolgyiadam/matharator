@@ -31,6 +31,9 @@
 
           @if($testitem->answer=="0")<h3 style="color: red;">Nem adott választ.</h3>
           @elseif($testitem->answer=="1")<h3 style="color: red;">Helyes választ adott.</h3>
-          @elseif($testitem->answer!="1")<h3 style="color: red;">Helytelen választ adott.</h3>@endif
+          @elseif($testitem->answer=="")<h3 style="color: red;">A feladat nem tartalmazott választ.</h3>
+          @elseif($testitem->answer=="2" ||
+                  $testitem->answer=="3" ||
+                  $testitem->answer=="4")<h3 style="color: red;">Helytelen választ adott.</h3>@endif
   </ul>
 </div>

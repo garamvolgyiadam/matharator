@@ -8,6 +8,8 @@
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML">
 </script>
 
+
+
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
@@ -35,9 +37,7 @@
   <div class="row">
 
     @foreach ($exercises as $exercise)
-
-      @include('apps.exercises.listitem')      
-
+      @include('apps.exercises.listitem')
     @endforeach
 
   </div>

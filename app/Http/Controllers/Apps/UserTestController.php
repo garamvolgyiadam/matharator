@@ -30,8 +30,6 @@ class UserTestController extends Controller {
 		}
 
 		$testitems = TestItems::where('test_id',$test_id)->get();
-		//dd($testitems);
-
 		return view('apps.usertest.show', compact(['testitems']));
 	}
 }
