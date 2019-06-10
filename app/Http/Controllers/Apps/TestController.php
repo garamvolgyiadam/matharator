@@ -12,8 +12,15 @@ use Illuminate\Http\Request;
 class TestController extends Controller {
 
 	public function index() {
-		$topics = Topic::all();
-		return view('apps.test.index',compact(['topics','uptime']));
+		if (!\Auth::check())
+		{
+				return redirect('/login');
+		}
+		else
+		{
+			$topics = Topic::all();
+			return view('apps.test.index',compact(['topics','uptime']));
+		}
 	}
 
 /**
@@ -28,22 +35,28 @@ class TestController extends Controller {
  *
  */
 	public function dotest(Request $request) {
-		if (!array_key_exists('topic', $request->all())) { //ha nem választok ki semmilyen témakört, amiből tesztet generálnék, visszadob a témakörkiválasztáshoz
-						return redirect('/test');
+		if (!\Auth::check())
+		{
+				return redirect('/login');
 		}
-		$topics=$request->all()['topic'];
+		else
+		{
+			if (!array_key_exists('topic', $request->all())) { //ha nem választok ki semmilyen témakört, amiből tesztet generálnék, visszadob a témakörkiválasztáshoz
+							return redirect('/test');
+			}
+			$topics=$request->all()['topic'];
 
-		// lekeri a 10 excerciset, random 10-et raszukitve a topicokra
-		// a 10 excersise-on belul berandomolja a valaszok sorrendjet
-		// atadja a viewnak
-		//return view('apps.test.index',compact(['topics']));
-		$exercises = Exercises::whereIn('topic_id', $topics)->inRandomOrder()->limit(10)->get(); //10db kérdést lekér válasszal
-		return view('apps.test.dotest',compact(['exercises']));
-
+			// lekeri a 10 excerciset, random 10-et raszukitve a topicokra
+			// a 10 excersise-on belul berandomolja a valaszok sorrendjet
+			// atadja a viewnak
+			//return view('apps.test.index',compact(['topics']));
+			$exercises = Exercises::whereIn('topic_id', $topics)->inRandomOrder()->limit(10)->get(); //10db kérdést lekér válasszal
+			return view('apps.test.dotest',compact(['exercises']));
+		}
 	}
 
 	public function savetest(Request $request) {
-		if (!\Auth::check())
+		if (!Auth::check())
 		{
 				return redirect('/login');
 		}

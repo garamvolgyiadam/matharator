@@ -27,6 +27,9 @@
                   <li class="nav-item">
                       <a class="nav-link" href="{{ route('register') }}">Regisztáció</a>
                   </li>
+                  <li class="nav-item">
+                    <a href="/topics" class="nav-link" href="#">Feladat témakörök</a>
+                  </li>
               @endif
           @else
               <li class="nav-item">

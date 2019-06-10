@@ -11,12 +11,19 @@ use App\Exercises;
 class UserTestController extends Controller {
 
 	public function index() {
+		if (!\Auth::check())
+		{
+				return redirect('/login');
+		}
+		else
+		{
 
-		$userid =  \Auth::id();
+			$userid =  \Auth::id();
 
-		$tests = Test::where('user_id',$userid)->get();
+			$tests = Test::where('user_id',$userid)->get();
 
-		return view('apps.usertest.index', compact(['tests']));
+			return view('apps.usertest.index', compact(['tests']));
+		}
 	}
 
 	public function show($test_id) {
